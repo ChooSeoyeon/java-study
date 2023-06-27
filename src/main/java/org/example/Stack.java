@@ -10,7 +10,7 @@ public class Stack {
     static final int DEFAULT_CAPACITY = 5; // 최소 용량 크기
 
     // 생성자
-    public Stack(int size) {
+    public Stack() {
 
         this.stack = new int[DEFAULT_CAPACITY]; // null로 초기화
         this.top = -1;
@@ -73,5 +73,15 @@ public class Stack {
         if(top < (capacity/2)) {
             stack = Arrays.copyOf(stack, Math.max(stack.length / 2, DEFAULT_CAPACITY)); // 새 용량과 디폴트 용량 중 큰 거만큼 설정
         }
+    }
+
+    public String toString() {
+
+        String result = "";
+        if (isEmpty()) return result;
+        for (int x : stack) {
+            result += String.valueOf(x + ',');
+        }
+        return result; //.substring(0, result.length()-1);
     }
 }
